@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .suites-menu {
+      width: 100%;
+      background-color: #add8e6;
+    }
+
+    .suites-menu .name {
+      display: inline-block;
+      padding: 10px;
+    }
+
+    .suites-menu .name.selected {
+      background-color: #90c9dc;
+      font-weight: 600;
+    }
+
+    .suite {
+      position: absolute;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .summary {
+      padding: 10px 20px;
+    }
+
+    .summary span {
+      padding-right: 20px;
+    }
+
+    .specs {
+      display: flex;
+    }
+
+    .specs-menu {
+      align-self: flex-start;
+      width: 500px;
+      background-color: #add8e6;
+    }
+
+    .specs-menu .selected {
+      background-color: #90c9dc;
+    }
+
+    .specs .name {
+      padding: 10px;
+      border-bottom: 1px solid #ffffff;
+    }
+
+    .name::before {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 10px;
+      border-radius: 50px;
+    }
+
+    .name.passed::before, .spec.passed .summary {
+      background-color: #3cb371;
+    }
+
+    .name.failed::before, .spec.failed .summary {
+      background-color: #ff6347;
+    }
+
+    .name:hover {
+      cursor: pointer;
+    }
+
+    .spec {
+      width: 100%;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid #add8e6;
+    }
+
+    .step.passed {
+      background-color: #3cb37166;
+    }
+
+    .step.failed {
+      background-color: #ff634766;
+    }
+
+    .step .content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 20px;
+    }
+
+    .step .content.reverse {
+      flex-direction: column-reverse;
+    }
+
+    code {
+      width: 90%;
+      padding: 10px;
+      background-color: #ffffff;
+      overflow: auto;
+      white-space: pre-wrap;
+    }
+
+    code.log {
+      height: 50px;
+    }
+
+    code.stack {
+      height: 300px;
+    }
+
+    img {
+      width: 300px;
+      margin: 20px 0;
+    }
+
+    .strong {
+      font-weight: 600;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .comparedImages {
+      margin-top: 16px;
+      display: flex;
+    }
+
+    .comparedImages > div:not(:first-child) {
+      margin-left: 16px;
+    }
+
+    .comparedImages > div {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+<div class="suites-menu">
+  
+  <div class="name" onClick="selectSuite(0)">welcome</div>
+  
+</div>
+
+<div class="suite hidden">
+  <div class="summary">
+    <span class="strong">Specs</span>
+    <span>Total: 11</span>
+    <span>Passed: 11</span>
+    <span>Failed: 0</span>
+    <span>Pending: 0</span>
+    <span>Disabled: 0</span>
+    <span>Duration: 51.5 sec</span>
+  </div>
+  <div class="specs">
+    <div class="specs-menu">
+      
+      <div class="name passed" onClick="selectSpec(0, 0)">Authentication</div>
+      
+      <div class="name passed" onClick="selectSpec(0, 1)">should return 200 response code</div>
+      
+      <div class="name passed" onClick="selectSpec(0, 2)">should load the app</div>
+      
+      <div class="name passed" onClick="selectSpec(0, 3)">check Promoted items</div>
+      
+      <div class="name passed" onClick="selectSpec(0, 4)">Should press the product link and navigate to product view</div>
+      
+      <div class="name passed" onClick="selectSpec(0, 5)">Navigate back to welocm page</div>
+      
+      <div class="name passed" onClick="selectSpec(0, 6)">select accessories product</div>
+      
+      <div class="name passed" onClick="selectSpec(0, 7)">Add DVD Accessories to Cart</div>
+      
+      <div class="name passed" onClick="selectSpec(0, 8)">Check product and proceed</div>
+      
+      <div class="name passed" onClick="selectSpec(0, 9)">Checkout</div>
+      
+      <div class="name passed" onClick="selectSpec(0, 10)">confirm order</div>
+      
+    </div>
+    
+    <div class="spec passed 0 hidden">
+      <div class="summary">
+        <div class="strong">Authentication</div>
+        
+      </div>
+      
+      
+      <div class="step ">
+        <p class="strong">1.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'sendKeys' on element with
+             ID 'j_username'
+            
+            
+            
+          </div>
+          
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step ">
+        <p class="strong">2.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'sendKeys' on element with
+             ID 'j_password'
+            
+            
+            
+          </div>
+          
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step ">
+        <p class="strong">3.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'click' on element with
+             ID 'logOnFormSubmit'
+            
+            
+            
+          </div>
+          
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+    </div>
+    
+    <div class="spec passed 1 hidden">
+      <div class="summary">
+        <div class="strong">should return 200 response code</div>
+        
+        <span class="strong">Expectations</span>
+        <span>Total: 1</span>
+        <span>Passed: 1</span>
+        <span>Failed: 0</span>
+        <span>Duration: 17.6 sec</span>
+        
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      <div class="step passed">
+        <p class="strong">4.</p>
+        <div class="content ">
+          
+          <div>Expectation PASSED: Expected &#39;200&#39; toBe &#39;200&#39;</div>
+          
+          
+          
+          <a href="welcome-should-return-200-response-code_3_pass_2021-04-08T07-47-17.png" target="_blank">
+            <img data-source="welcome-should-return-200-response-code_3_pass_2021-04-08T07-47-17.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+    </div>
+    
+    <div class="spec passed 2 hidden">
+      <div class="summary">
+        <div class="strong">should load the app</div>
+        
+        <span class="strong">Expectations</span>
+        <span>Total: 1</span>
+        <span>Passed: 1</span>
+        <span>Failed: 0</span>
+        <span>Duration: 0.7 sec</span>
+        
+      </div>
+      
+      
+      <div class="step passed">
+        <p class="strong">1.</p>
+        <div class="content ">
+          
+          <div>Expectation PASSED: Expected &#39;Shopping Cart&#39; toBe &#39;Shopping Cart&#39;</div>
+          
+          
+          
+          <a href="welcome-should-load-the-app_0_pass_2021-04-08T07-47-18.png" target="_blank">
+            <img data-source="welcome-should-load-the-app_0_pass_2021-04-08T07-47-18.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+    </div>
+    
+    <div class="spec passed 3 hidden">
+      <div class="summary">
+        <div class="strong">check Promoted items</div>
+        
+        <span class="strong">Expectations</span>
+        <span>Total: 0</span>
+        <span>Passed: 0</span>
+        <span>Failed: 0</span>
+        <span>Duration: 0 sec</span>
+        
+      </div>
+      
+    </div>
+    
+    <div class="spec passed 4 hidden">
+      <div class="summary">
+        <div class="strong">Should press the product link and navigate to product view</div>
+        
+        <span class="strong">Expectations</span>
+        <span>Total: 1</span>
+        <span>Passed: 1</span>
+        <span>Failed: 0</span>
+        <span>Duration: 3.9 sec</span>
+        
+      </div>
+      
+      
+      <div class="step ">
+        <p class="strong">1.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'click' on element with
+             locator 'by.control({&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Welcome&quot;,&quot;controlType&quot;:&quot;sap.m.ObjectIdentifier&quot;,&quot;bindingPath&quot;:{&quot;path&quot;:&quot;/Promoted/0&quot;,&quot;modelName&quot;:&quot;view&quot;}})' and ID '__identifier0-container-cart---welcomeView--promotedRow-0-link'
+            
+            
+            
+          </div>
+          
+          
+          <a href="click___identifier0-container-cart---welcomeView--promotedRow-0-link_0_2021-04-08T07-47-19.png" target="_blank">
+            <img data-source="click___identifier0-container-cart---welcomeView--promotedRow-0-link_0_2021-04-08T07-47-19.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step passed">
+        <p class="strong">2.</p>
+        <div class="content ">
+          
+          <div>Expectation PASSED: Expected &#39;11&#39; toBeGreaterThan &#39;0&#39;</div>
+          
+          
+          
+          <a href="welcome-Should-press-the-product-link-and-navigate-to-product-view_1_pass_2021-04-08T07-47-22.png" target="_blank">
+            <img data-source="welcome-Should-press-the-product-link-and-navigate-to-product-view_1_pass_2021-04-08T07-47-22.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+    </div>
+    
+    <div class="spec passed 5 hidden">
+      <div class="summary">
+        <div class="strong">Navigate back to welocm page</div>
+        
+        <span class="strong">Expectations</span>
+        <span>Total: 0</span>
+        <span>Passed: 0</span>
+        <span>Failed: 0</span>
+        <span>Duration: 0.8 sec</span>
+        
+      </div>
+      
+      
+      <div class="step ">
+        <p class="strong">1.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'click' on element with
+             locator 'by.control({&quot;id&quot;:{},&quot;controlType&quot;:&quot;sap.m.Button&quot;,&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Category&quot;})' and ID 'container-cart---category--page-navButton'
+            
+            
+            
+          </div>
+          
+          
+          <a href="click_container-cart---category--page-navButton_0_2021-04-08T07-47-23.png" target="_blank">
+            <img data-source="click_container-cart---category--page-navButton_0_2021-04-08T07-47-23.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+    </div>
+    
+    <div class="spec passed 6 hidden">
+      <div class="summary">
+        <div class="strong">select accessories product</div>
+        
+        <span class="strong">Expectations</span>
+        <span>Total: 1</span>
+        <span>Passed: 1</span>
+        <span>Failed: 0</span>
+        <span>Duration: 3.6 sec</span>
+        
+      </div>
+      
+      
+      <div class="step ">
+        <p class="strong">1.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'click' on element with
+             locator 'by.control({&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Home&quot;,&quot;controlType&quot;:&quot;sap.m.StandardListItem&quot;})' and ID '__item4-container-cart---homeView--categoryList-0'
+            
+            
+            
+          </div>
+          
+          
+          <a href="click___item4-container-cart---homeView--categoryList-0_0_2021-04-08T07-47-24.png" target="_blank">
+            <img data-source="click___item4-container-cart---homeView--categoryList-0_0_2021-04-08T07-47-24.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step passed">
+        <p class="strong">2.</p>
+        <div class="content ">
+          
+          <div>Expectation PASSED: Expected &#39;34&#39; toBeGreaterThan &#39;0&#39;</div>
+          
+          
+          
+          <a href="welcome-select-accessories-product_1_pass_2021-04-08T07-47-26.png" target="_blank">
+            <img data-source="welcome-select-accessories-product_1_pass_2021-04-08T07-47-26.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+    </div>
+    
+    <div class="spec passed 7 hidden">
+      <div class="summary">
+        <div class="strong">Add DVD Accessories to Cart</div>
+        
+        <span class="strong">Expectations</span>
+        <span>Total: 0</span>
+        <span>Passed: 0</span>
+        <span>Failed: 0</span>
+        <span>Duration: 4.1 sec</span>
+        
+      </div>
+      
+      
+      <div class="step ">
+        <p class="strong">1.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'click' on element with
+             locator 'by.control({&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Category&quot;,&quot;controlType&quot;:&quot;sap.m.ObjectListItem&quot;,&quot;bindingPath&quot;:{&quot;path&quot;:&quot;/Products(&#39;HT-2001&#39;)&quot;}})' and ID '__item5-container-cart---category--productList-0'
+            
+            
+            
+          </div>
+          
+          
+          <a href="click___item5-container-cart---category--productList-0_0_2021-04-08T07-47-27.png" target="_blank">
+            <img data-source="click___item5-container-cart---category--productList-0_0_2021-04-08T07-47-27.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step ">
+        <p class="strong">2.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'click' on element with
+             locator 'by.control({&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Product&quot;,&quot;controlType&quot;:&quot;sap.m.Button&quot;,&quot;properties&quot;:{&quot;text&quot;:&quot;Add to Cart&quot;}})' and ID '__button10'
+            
+            
+            
+          </div>
+          
+          
+          <a href="click___button10_1_2021-04-08T07-47-29.png" target="_blank">
+            <img data-source="click___button10_1_2021-04-08T07-47-29.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step ">
+        <p class="strong">3.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'click' on element with
+             locator 'by.control({&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Product&quot;,&quot;controlType&quot;:&quot;sap.m.ToggleButton&quot;,&quot;properties&quot;:{&quot;icon&quot;:&quot;sap-icon://cart&quot;}})' and ID '__button9'
+            
+            
+            
+          </div>
+          
+          
+          <a href="click___button9_2_2021-04-08T07-47-30.png" target="_blank">
+            <img data-source="click___button9_2_2021-04-08T07-47-30.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+    </div>
+    
+    <div class="spec passed 8 hidden">
+      <div class="summary">
+        <div class="strong">Check product and proceed</div>
+        
+        <span class="strong">Expectations</span>
+        <span>Total: 0</span>
+        <span>Passed: 0</span>
+        <span>Failed: 0</span>
+        <span>Duration: 1.7 sec</span>
+        
+      </div>
+      
+      
+      <div class="step ">
+        <p class="strong">1.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'click' on element with
+             locator 'by.control({&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Cart&quot;,&quot;controlType&quot;:&quot;sap.m.Button&quot;,&quot;properties&quot;:{&quot;text&quot;:&quot;Proceed&quot;}})' and ID 'container-cart---cartView--proceedButton'
+            
+            
+            
+          </div>
+          
+          
+          <a href="click_container-cart---cartView--proceedButton_0_2021-04-08T07-47-32.png" target="_blank">
+            <img data-source="click_container-cart---cartView--proceedButton_0_2021-04-08T07-47-32.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+    </div>
+    
+    <div class="spec passed 9 hidden">
+      <div class="summary">
+        <div class="strong">Checkout</div>
+        
+        <span class="strong">Expectations</span>
+        <span>Total: 0</span>
+        <span>Passed: 0</span>
+        <span>Failed: 0</span>
+        <span>Duration: 16.7 sec</span>
+        
+      </div>
+      
+      
+      <div class="step ">
+        <p class="strong">1.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'click' on element with
+             locator 'by.control({&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Checkout&quot;,&quot;controlType&quot;:&quot;sap.m.Button&quot;,&quot;properties&quot;:{&quot;text&quot;:&quot;Step 2&quot;}})' and ID 'container-cart---checkoutView--contentsStep-nextButton'
+            
+            
+            
+          </div>
+          
+          
+          <a href="click_container-cart---checkoutView--contentsStep-nextButton_0_2021-04-08T07-47-36.png" target="_blank">
+            <img data-source="click_container-cart---checkoutView--contentsStep-nextButton_0_2021-04-08T07-47-36.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step ">
+        <p class="strong">2.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'click' on element with
+             locator 'by.control({&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Checkout&quot;,&quot;id&quot;:&quot;payViaCC&quot;})' and ID 'container-cart---checkoutView--payViaCC-button'
+            
+            
+            
+          </div>
+          
+          
+          <a href="click_container-cart---checkoutView--payViaCC-button_1_2021-04-08T07-47-37.png" target="_blank">
+            <img data-source="click_container-cart---checkoutView--payViaCC-button_1_2021-04-08T07-47-37.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step ">
+        <p class="strong">3.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'click' on element with
+             locator 'by.control({&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Checkout&quot;,&quot;controlType&quot;:&quot;sap.m.Button&quot;,&quot;properties&quot;:{&quot;text&quot;:&quot;Step 3&quot;}})' and ID 'container-cart---checkoutView--paymentTypeStep-nextButton'
+            
+            
+            
+          </div>
+          
+          
+          <a href="click_container-cart---checkoutView--paymentTypeStep-nextButton_2_2021-04-08T07-47-38.png" target="_blank">
+            <img data-source="click_container-cart---checkoutView--paymentTypeStep-nextButton_2_2021-04-08T07-47-38.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step ">
+        <p class="strong">4.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'sendKeys' on element with
+             locator 'by.control({&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Checkout&quot;,&quot;id&quot;:&quot;creditCardHolderName&quot;})' and ID 'container-cart---checkoutView--creditCardHolderName-inner'
+             with value 'Harshit V' 
+            
+            
+          </div>
+          
+          
+          <a href="sendKeys_container-cart---checkoutView--creditCardHolderName-inner_3_2021-04-08T07-47-39.png" target="_blank">
+            <img data-source="sendKeys_container-cart---checkoutView--creditCardHolderName-inner_3_2021-04-08T07-47-39.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step ">
+        <p class="strong">5.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'sendKeys' on element with
+             locator 'by.control({&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Checkout&quot;,&quot;id&quot;:&quot;creditCardNumber&quot;})' and ID 'container-cart---checkoutView--creditCardNumber-inner'
+             with value '1234567890123456' 
+            
+            
+          </div>
+          
+          
+          <a href="sendKeys_container-cart---checkoutView--creditCardNumber-inner_4_2021-04-08T07-47-40.png" target="_blank">
+            <img data-source="sendKeys_container-cart---checkoutView--creditCardNumber-inner_4_2021-04-08T07-47-40.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step ">
+        <p class="strong">6.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'sendKeys' on element with
+             locator 'by.control({&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Checkout&quot;,&quot;id&quot;:&quot;creditCardSecurityNumber&quot;})' and ID 'container-cart---checkoutView--creditCardSecurityNumber-inner'
+             with value '123' 
+            
+            
+          </div>
+          
+          
+          <a href="sendKeys_container-cart---checkoutView--creditCardSecurityNumber-inner_5_2021-04-08T07-47-40.png" target="_blank">
+            <img data-source="sendKeys_container-cart---checkoutView--creditCardSecurityNumber-inner_5_2021-04-08T07-47-40.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step ">
+        <p class="strong">7.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'sendKeys' on element with
+             locator 'by.control({&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Checkout&quot;,&quot;id&quot;:&quot;creditCardExpirationDate&quot;})' and ID 'container-cart---checkoutView--creditCardExpirationDate-inner'
+             with value '01/2021' 
+            
+            
+          </div>
+          
+          
+          <a href="sendKeys_container-cart---checkoutView--creditCardExpirationDate-inner_6_2021-04-08T07-47-41.png" target="_blank">
+            <img data-source="sendKeys_container-cart---checkoutView--creditCardExpirationDate-inner_6_2021-04-08T07-47-41.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step ">
+        <p class="strong">8.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'click' on element with
+             locator 'by.control({&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Checkout&quot;,&quot;controlType&quot;:&quot;sap.m.Button&quot;,&quot;properties&quot;:{&quot;text&quot;:&quot;Step 4&quot;}})' and ID 'container-cart---checkoutView--creditCardStep-nextButton'
+            
+            
+            
+          </div>
+          
+          
+          <a href="click_container-cart---checkoutView--creditCardStep-nextButton_7_2021-04-08T07-47-42.png" target="_blank">
+            <img data-source="click_container-cart---checkoutView--creditCardStep-nextButton_7_2021-04-08T07-47-42.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step ">
+        <p class="strong">9.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'sendKeys' on element with
+             locator 'by.control({&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Checkout&quot;,&quot;controlType&quot;:&quot;sap.m.Input&quot;,&quot;id&quot;:&quot;invoiceAddressAddress&quot;})' and ID 'container-cart---checkoutView--invoiceAddressAddress-inner'
+             with value 'bangalore' 
+            
+            
+          </div>
+          
+          
+          <a href="sendKeys_container-cart---checkoutView--invoiceAddressAddress-inner_8_2021-04-08T07-47-43.png" target="_blank">
+            <img data-source="sendKeys_container-cart---checkoutView--invoiceAddressAddress-inner_8_2021-04-08T07-47-43.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step ">
+        <p class="strong">10.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'sendKeys' on element with
+             locator 'by.control({&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Checkout&quot;,&quot;controlType&quot;:&quot;sap.m.Input&quot;,&quot;id&quot;:&quot;invoiceAddressCity&quot;})' and ID 'container-cart---checkoutView--invoiceAddressCity-inner'
+             with value 'Bengalore' 
+            
+            
+          </div>
+          
+          
+          <a href="sendKeys_container-cart---checkoutView--invoiceAddressCity-inner_9_2021-04-08T07-47-44.png" target="_blank">
+            <img data-source="sendKeys_container-cart---checkoutView--invoiceAddressCity-inner_9_2021-04-08T07-47-44.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step ">
+        <p class="strong">11.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'sendKeys' on element with
+             locator 'by.control({&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Checkout&quot;,&quot;controlType&quot;:&quot;sap.m.Input&quot;,&quot;id&quot;:&quot;invoiceAddressZip&quot;})' and ID 'container-cart---checkoutView--invoiceAddressZip-inner'
+             with value '560001' 
+            
+            
+          </div>
+          
+          
+          <a href="sendKeys_container-cart---checkoutView--invoiceAddressZip-inner_10_2021-04-08T07-47-45.png" target="_blank">
+            <img data-source="sendKeys_container-cart---checkoutView--invoiceAddressZip-inner_10_2021-04-08T07-47-45.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step ">
+        <p class="strong">12.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'sendKeys' on element with
+             locator 'by.control({&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Checkout&quot;,&quot;controlType&quot;:&quot;sap.m.Input&quot;,&quot;id&quot;:&quot;invoiceAddressCountry&quot;})' and ID 'container-cart---checkoutView--invoiceAddressCountry-inner'
+             with value 'India' 
+            
+            
+          </div>
+          
+          
+          <a href="sendKeys_container-cart---checkoutView--invoiceAddressCountry-inner_11_2021-04-08T07-47-46.png" target="_blank">
+            <img data-source="sendKeys_container-cart---checkoutView--invoiceAddressCountry-inner_11_2021-04-08T07-47-46.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step ">
+        <p class="strong">13.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'click' on element with
+             locator 'by.control({&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Checkout&quot;,&quot;controlType&quot;:&quot;sap.m.Button&quot;,&quot;properties&quot;:{&quot;text&quot;:&quot;Step 5&quot;}})' and ID 'container-cart---checkoutView--invoiceStep-nextButton'
+            
+            
+            
+          </div>
+          
+          
+          <a href="click_container-cart---checkoutView--invoiceStep-nextButton_12_2021-04-08T07-47-46.png" target="_blank">
+            <img data-source="click_container-cart---checkoutView--invoiceStep-nextButton_12_2021-04-08T07-47-46.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step ">
+        <p class="strong">14.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'click' on element with
+             locator 'by.control({&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Checkout&quot;,&quot;controlType&quot;:&quot;sap.m.Button&quot;,&quot;properties&quot;:{&quot;text&quot;:&quot;Order Summary&quot;}})' and ID 'container-cart---checkoutView--deliveryTypeStep-nextButton'
+            
+            
+            
+          </div>
+          
+          
+          <a href="click_container-cart---checkoutView--deliveryTypeStep-nextButton_13_2021-04-08T07-47-47.png" target="_blank">
+            <img data-source="click_container-cart---checkoutView--deliveryTypeStep-nextButton_13_2021-04-08T07-47-47.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step ">
+        <p class="strong">15.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'click' on element with
+             locator 'by.control({&quot;viewName&quot;:&quot;sap.ui.demo.cart.view.Checkout&quot;,&quot;controlType&quot;:&quot;sap.m.Button&quot;,&quot;properties&quot;:{&quot;text&quot;:&quot;Submit&quot;}})' and ID 'container-cart---checkoutView--submitOrder'
+            
+            
+            
+          </div>
+          
+          
+          <a href="click_container-cart---checkoutView--submitOrder_14_2021-04-08T07-47-48.png" target="_blank">
+            <img data-source="click_container-cart---checkoutView--submitOrder_14_2021-04-08T07-47-48.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="step ">
+        <p class="strong">16.</p>
+        <div class="content reverse">
+          
+          
+          <div>Execute 'click' on element with
+             locator 'by.control({&quot;controlType&quot;:&quot;sap.m.Button&quot;,&quot;properties&quot;:{&quot;text&quot;:&quot;Yes&quot;}})' and ID '__mbox-btn-0'
+            
+            
+            
+          </div>
+          
+          
+          <a href="click___mbox-btn-0_15_2021-04-08T07-47-49.png" target="_blank">
+            <img data-source="click___mbox-btn-0_15_2021-04-08T07-47-49.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+    </div>
+    
+    <div class="spec passed 10 hidden">
+      <div class="summary">
+        <div class="strong">confirm order</div>
+        
+        <span class="strong">Expectations</span>
+        <span>Total: 1</span>
+        <span>Passed: 1</span>
+        <span>Failed: 0</span>
+        <span>Duration: 2.3 sec</span>
+        
+      </div>
+      
+      
+      <div class="step passed">
+        <p class="strong">1.</p>
+        <div class="content ">
+          
+          <div>Expectation PASSED: Expected &#39;true&#39; toBe &#39;true&#39;</div>
+          
+          
+          
+          <a href="welcome-confirm-order_0_pass_2021-04-08T07-47-51.png" target="_blank">
+            <img data-source="welcome-confirm-order_0_pass_2021-04-08T07-47-51.png"/>
+          </a>
+          
+          
+          
+          
+        </div>
+      </div>
+      
+      
+    </div>
+    
+  </div>
+</div>
+
+<script>
+  (function init () {
+    var suiteMenuElement = document.getElementsByClassName("suites-menu")[0];
+    var specMenuElement = document.getElementsByClassName("specs-menu")[0];
+    selectSuite(0);
+  })();
+
+  function selectSuite(suiteIndex) {
+    select(document, suiteIndex, "suites-menu", "suite");
+    selectSpec(suiteIndex, 0);
+  }
+
+  function selectSpec(suiteIndex, specIndex) {
+    var parentElement = document.getElementsByClassName("specs")[suiteIndex];
+    select(parentElement, specIndex, "specs-menu", "spec");
+
+    var specElements = parentElement.getElementsByClassName("spec");
+    var specImageElements = specElements[specIndex].getElementsByTagName("img");
+    Array.prototype.forEach.call(specImageElements, function (img) {
+      img.src = img.getAttribute("data-source");
+    });
+  }
+
+  function select(parentElement, index, menuClassName, itemClassName) {
+    var menuElement = parentElement.getElementsByClassName(menuClassName)[0];
+    var menuElements = menuElement.getElementsByClassName("name");
+    Array.prototype.forEach.call(menuElements, function (el) {
+      el.classList.remove("selected");
+    });
+    menuElements[index].classList.add("selected");
+
+    var itemElements = parentElement.getElementsByClassName(itemClassName);
+    Array.prototype.forEach.call(itemElements, function (el) {
+      el.classList.add("hidden");
+    });
+    itemElements[index].classList.remove("hidden");
+  }
+</script>
+</body>
+</html>
